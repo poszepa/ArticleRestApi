@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -19,14 +20,16 @@ public class Article {
     @Column(name = "id", nullable = false)
     private Long id;
 
-
+    @Size(min = 2, max = 30)
     private String title;
+    @Size(min = 5)
     private String description;
 
     @Column(name = "publication_date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate datePublication;
 
+    @Size(min = 2, max = 30)
     private String magazine;
 
     @ManyToOne
