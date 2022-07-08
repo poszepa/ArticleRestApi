@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,5 +25,17 @@ public class ArticleService {
             return new ArrayList<>();
         }
         return articleList;
+    }
+
+    public Optional<Article> modifyArticle(Long articleID, Article article) {
+        if(!articleRepository.existsById(articleID)) {
+            return Optional.empty();
+        }
+        Article articleFromDM = articleRepository.getById(articleID);
+        article.setId(articleID);
+        article.setDateSavedArticle(articleFromDM.getDateSavedArticle());
+        article.setTimeSavedArticle(articleFromDM.getTimeSavedArticle());
+        articleRepository.save(article);
+        return Optional.of(article);
     }
 }
