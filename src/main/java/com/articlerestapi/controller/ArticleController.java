@@ -2,6 +2,7 @@ package com.articlerestapi.controller;
 
 import com.articlerestapi.entity.Article;
 import com.articlerestapi.repository.ArticleRepository;
+import com.articlerestapi.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class ArticleController {
 
     private final ArticleRepository articleRepository;
+    private final ArticleService articleService;
 
 
     @GetMapping("/article/{id}")
@@ -22,6 +25,18 @@ public class ArticleController {
         Article article = articleRepository.findById(articleID).orElseThrow(() -> new EntityNotFoundException("Not found article with those id"));
         return ResponseEntity.ok(article);
     }
+
+    @GetMapping("/article/desc")
+    public List<Article> getArticleListSortedByPublicationDesc() {
+        return articleRepository.ListOfArticleSortedByDatePublication();
+    }
+
+    @GetMapping("/article/findByKey/{key}")
+    public List<Article> getArticleListWithFoundedKeyInTitleOrDescription(@PathVariable("key")String key) {
+        return articleService.findArticleWithKeyOnTitleOrDescription(key);
+    }
+
+
 
 
 
