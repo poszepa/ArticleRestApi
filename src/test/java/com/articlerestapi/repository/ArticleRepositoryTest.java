@@ -32,7 +32,7 @@ class ArticleRepositoryTest {
         Article article2 = Article.builder().datePublication(LocalDate.of(2020, 10, 12)).title("TitleTest2").description("descrpitonTest2").author(author).magazine("testMagazine2").build();
         entityManager.persist(article2);
 
-        List<Article> articleList = articleRepository.ListOfArtcileSortedByDatePublication();
+        List<Article> articleList = articleRepository.ListOfArticleSortedByDatePublication();
 
         Truth.assertThat(articleList).hasSize(2);
         Truth.assertThat(articleList.get(0)).isEqualTo(article);
