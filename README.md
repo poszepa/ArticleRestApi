@@ -39,6 +39,8 @@ Author:
   dataPublication: pattern "dd-MM-yyyy"
   magazine: size between 2-30
   author: only accept Class like a Author.class
+```
+
 
 ### Create a Author resource
 
@@ -85,7 +87,7 @@ Body =
   "dateSavedArticle":10-11-2022,
   "timeSavedArticle":22:15:22
 }
-
+```
 
 ### Retrieve a Article List sorted by date publication desc
 
@@ -114,7 +116,7 @@ Body =
   "timeSavedArticle":22:15:22
 }
 
-
+```
 ### Retrieve a Article List with founded key which was setted in param
 
 ```
@@ -141,7 +143,7 @@ Body =
   "dateSavedArticle":10-11-2022,
   "timeSavedArticle":22:15:22
 }
-
+```
 
 ### Save a new Article
 
@@ -180,7 +182,7 @@ response body:
   "timeSavedArticle":22:15:22
 }
 
-
+```
 ### Update a Article resource
 
 ```
@@ -221,7 +223,7 @@ response body:
   "dateSavedArticle":10-11-2022,
   "timeSavedArticle":22:15:22
 }
-
+```
 
 ### Update a Article resource
 
