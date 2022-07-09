@@ -54,8 +54,6 @@ Content-Type: application/json
 "lastName" : "Author surname",
 }
 
-FistName validation : size between 2 - 20;
-LastName validation : size between 2 - 20;
 
 RESPONSE: HTTP 201 (Created)
 Location header: http://localhost:8080/Author/1
