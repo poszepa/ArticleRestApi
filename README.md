@@ -31,7 +31,7 @@ Author:
   description: minimum size 5
   dataPublication: pattern "dd-MM-yyyy"
   magazine: size between 2-30
-  author: only accept Class like a Author.class
+  author: only accept Object like a Author.class
 ```
 
 
